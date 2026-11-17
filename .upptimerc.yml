@@ -1,31 +1,28 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: Prowess-org
+repo: status
 
+# Sondes externes de Prowess (doc/architecture/exploitation-scaleway.md §7) : toutes les 5 minutes depuis
+# GitHub Actions, donc hors de Scaleway. Une panne ouvre une issue assignée, d'où une notification GitHub.
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
+  - name: App
+    slug: app
+    url: https://app.getprowess.fr/api/health/live
+  # Adresse de la console : secret SECRET_SITE du repo, pour ne pas la publier dans ce repo public.
+  - name: Console
+    slug: console
     url: $SECRET_SITE
+  - name: Démo
+    slug: demo
+    url: https://demo.getprowess.fr/api/health/live
+
+assignees:
+  - Flipflop1830
+
+# La description du repo reste celle posée à la création ; pas de page de statut publique (GitHub Pages).
+skipDescriptionUpdate: true
+skipTopicsUpdate: true
+skipHomepageUpdate: true
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  baseUrl: /status
+  name: Prowess
